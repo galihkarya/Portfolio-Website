@@ -184,7 +184,7 @@ function Projects() {
 
 function Contact() {
   return (
-    <div id="contact" className="flex flex-col gap-5 bg-[#0D111E] items-center">
+    <div id="contact" className="flex flex-col gap-5 bg-[#0D111E] items-center py-6">
       <h2 className="text-white text-center font-bold text-base">CONTACT ME</h2>
       <div className="flex justify-center gap-6">
         <a href="https://www.instagram.com/galihkarya_g/" target="_blank" rel="noopener noreferrer">
