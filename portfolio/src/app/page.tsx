@@ -143,6 +143,8 @@ function Hero() {
         <Image
           src={myPhoto}
           className="w-auto h-[70%] md:w-[50%] md:h-auto"
+          width={1964}
+          height={1911}
           alt="my photo"
         />
 
