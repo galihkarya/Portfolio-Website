@@ -1,10 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import codeBackground from "../../assets/code-background.png";
 import myPhoto from "../../assets/my-photo.png";
 import reactIcon from "../../assets/react.png";
 import uiuxIcon from "../../assets/uiux.png";
 import videoEditingIcon from "../../assets/video.png";
-import { Moon } from "lucide-react";
+import { Moon, AlignJustify, X } from "lucide-react";
 import { useState } from "react";
 
 const projects = [
@@ -53,17 +55,75 @@ export default function Home() {
 }
 
 function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="flex items-center justify-between px-16 py-6">
-      <h1 className="font-bold text-2xl tracking-widest text-white ">
-        &lt;gal/&gt;
-      </h1>
-      <div className="text-white flex items-center font-normal text-base gap-6">
-        <a href="#hero">About me</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#">Contact</a>
-        <Moon size={18} />
+    <div className="relative">
+      <div className="flex items-center justify-between px-16 py-6">
+        <h1 className="font-bold text-2xl tracking-widest text-white ">
+          &lt;gal/&gt;
+        </h1>
+        <button onClick={toggleSidebar}>
+          <AlignJustify className="md:hidden" color="white" size={20} />
+        </button>
+        <div className="text-white hidden md:flex flex-row items-center font-normal text-base gap-6">
+          <a href="#hero">About me</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <Moon size={20} />
+        </div>
+      </div>
+
+      <div
+        className={`fixed inset-y-0 left-0 z-50 w-64 backdrop-blur-md bg-[#171c2a]/30 text-white transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out`}
+      >
+        <button className=" items-center px-4 py-4" onClick={toggleSidebar}>
+          <X size={24} />
+        </button>
+        <div className="flex flex-col h-[90%]  justify-between ">
+          <div>
+            <nav className="my-8">
+              <a
+                href="#hero"
+                className="block py-2.5 px-4 hover:bg-gray-700"
+                onClick={toggleSidebar}
+              >
+                About me
+              </a>
+              <a
+                href="#skills"
+                className="block py-2.5 px-4 hover:bg-gray-700"
+                onClick={toggleSidebar}
+              >
+                Skills
+              </a>
+              <a
+                href="#projects"
+                className="block py-2.5 px-4 hover:bg-gray-700"
+                onClick={toggleSidebar}
+              >
+                Projects
+              </a>
+              <a
+                href="#contact"
+                className="block py-2.5 px-4 hover:bg-gray-700"
+                onClick={toggleSidebar}
+              >
+                Contact
+              </a>
+            </nav>
+          </div>
+          <div className="px-4">
+            <Moon color="white" size={20} />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -71,34 +131,29 @@ function NavBar() {
 
 function Hero() {
   return (
-    <div id="hero" className="relative flex overflow-hidden ">
+    <div id="hero" className="relative flex overflow-hidden">
       <Image
         src={codeBackground}
-        style={{ objectFit: "cover", scale: 1.5, zIndex: 0 }}
+        style={{ objectFit: "cover", scale: '200%', zIndex: 0 }}
         alt="Code Background"
         layout="fill"
         className="object-cover"
       />
-      <div className="relative flex items-center">
+      <div className="relative flex flex-col w-full md:flex-row items-center">
         <Image
           src={myPhoto}
-          // sizes="auto"
-          style={{
-            width: "50%",
-            height: "auto",
-            paddingTop: 10,
-            paddingBottom: 10,
-          }}
+          className="w-auto h-[70%] md:w-[50%] md:h-auto"
           alt="my photo"
         />
-        <div className="flex flex-col items-end max-w-[50%] gap-3 py-6">
-          <h2 className="text-white text-5xl text-right font-extralight">
+
+        <div className=" flex flex-col gap-3 py-6 -mt-[30%] sm:-mt-[25%] md:items-end md:max-w-[50%] md:relative">
+          <h2 className="text-white text-5xl text-center md:text-right font-extralight">
             Hi!
           </h2>
-          <h1 className="bg-[#FFD602] text-right font-bold text-6xl inline-block py-2 px-5">
+          <h1 className="bg-[#FFD602] text-center md:text-right font-bold text-5xl py-2 px-5">
             I&apos;m Galih Karya
           </h1>
-          <p className="text-white text-right font-normal">
+          <p className="text-white text-center md:text-right font-light text-lg mt-[5%]">
             I am an undergraduate student at Computer Engineering Department,
             Telkom University. My academic journey has equipped me with a strong
             foundation in mobile app development and machine learning. The
@@ -114,26 +169,29 @@ function Hero() {
 function Skills() {
   return (
     <div id="skills" className="flex flex-col gap-5">
-      <h2 className="text-white text-center font-bold text-base">
+      <h2 className="text-white text-center font-bold text-xl">
         WHAT I&apos;M GREAT AT
       </h2>
-      <div className="flex items-center gap-6 justify-center">
+
+      <div className="flex flex-col items-center gap-6 justify-center md:flex-row">
         <div className="flex items-center gap-4">
-          <Image alt="react icon" width={29} height={29} src={reactIcon} />
-          <p className="text-white font-light text-sm">Front-end Development</p>
+          <Image alt="react icon" width={36} height={36} src={reactIcon} />
+          <p className="text-white font-light text-base">Front-end Development</p>
         </div>
+
         <div className="flex items-center gap-4">
-          <Image alt="react icon" width={29} height={29} src={uiuxIcon} />
-          <p className="text-white font-light text-sm">UI/UX Design</p>
+          <Image alt="react icon" width={36} height={36} src={uiuxIcon} />
+          <p className="text-white font-light text-base">UI/UX Design</p>
         </div>
+        
         <div className="flex items-center gap-4">
           <Image
             alt="react icon"
-            width={29}
-            height={29}
+            width={36}
+            height={36}
             src={videoEditingIcon}
           />
-          <p className="text-white font-light text-sm">Video Editing</p>
+          <p className="text-white font-light text-base">Video Editing</p>
         </div>
       </div>
     </div>
@@ -144,17 +202,27 @@ function ProjectComponent({ project }: any) {
   // const [i, setI] = useState(0);
   // setI(prevCount => prevCount + 1)
   return (
-    <div className=" flex justify-between items-start gap-[8%] ">
-      <div className="min-w-[35%] max-w-[40%] ">
+    <div className=" flex flex-col justify-between items-start gap-2 md:flex-row">
+      <div className="gap-5 md:min-w-[35%] md:max-w-[40%] ">
         <h3 className="text-white font-medium text-left">
           01 / {project.title}
         </h3>
+
+        <Image
+        className="md:hidden md:h-[180px] md:w-[320px]"
+          alt={project.title}
+          src={project.image}
+          width={320}
+          height={180}
+        />
+
         <p className="text-white font-extralight text-left">
           {project.description}
         </p>
       </div>
       <div className="flex-shrink-0">
         <Image
+        className="hidden md:block md:h-[180px] md:w-[320px]"
           alt={project.title}
           src={project.image}
           width={320}
@@ -184,10 +252,17 @@ function Projects() {
 
 function Contact() {
   return (
-    <div id="contact" className="flex flex-col gap-5 bg-[#0D111E] items-center py-6">
+    <div
+      id="contact"
+      className="flex flex-col gap-5 bg-[#0D111E] items-center py-6"
+    >
       <h2 className="text-white text-center font-bold text-base">CONTACT ME</h2>
       <div className="flex justify-center gap-6">
-        <a href="https://www.instagram.com/galihkarya_g/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.instagram.com/galihkarya_g/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
             src="/assets/Instagram.png"
             alt="instagram"
@@ -195,7 +270,11 @@ function Contact() {
             height={45}
           />
         </a>
-        <a href="https://www.linkedin.com/in/galihkarya/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/galihkarya/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
             src="/assets/LinkedIn.png"
             alt="linkedin"
@@ -203,11 +282,17 @@ function Contact() {
             height={45}
           />
         </a>
-        <a href="mailto:galihkaryagemilang2001@gmail.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="mailto:galihkaryagemilang2001@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src="/assets/Email.png" alt="email" width={45} height={45} />
         </a>
       </div>
-      <h3 className="text-white font-thin opacity-50">handcrafted with  ❤️  2024</h3>
+      <h3 className="text-white font-thin opacity-50">
+        handcrafted with ❤️ 2024
+      </h3>
     </div>
   );
 }
