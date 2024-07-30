@@ -142,9 +142,9 @@ function Hero() {
       <div className="relative flex flex-col w-full md:flex-row items-center">
         <Image
           src={myPhoto}
-          className="w-auto h-[70%] md:w-[50%] md:h-auto"
-          width={1964}
-          height={1911}
+          className=" aspect-square md:w-[50%] md:h-auto"
+          width={2235}
+          height={2235}
           alt="my photo"
         />
 
