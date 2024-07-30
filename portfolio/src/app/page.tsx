@@ -7,7 +7,7 @@ import reactIcon from "../../assets/react.png";
 import uiuxIcon from "../../assets/uiux.png";
 import videoEditingIcon from "../../assets/video.png";
 import { Moon, AlignJustify, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const projects = [
   {
@@ -146,8 +146,8 @@ function Hero() {
           alt="my photo"
         />
 
-        <div className=" flex flex-col gap-3 py-6 -mt-[30%] sm:-mt-[25%] md:items-end md:max-w-[50%] md:relative">
-          <h2 className="text-white text-5xl text-center md:text-right font-extralight">
+        <div className=" flex flex-col gap-3 py-6 -mt-[30%] sm:-mt-[25%] md:mt-0 md:justify-center md:items-end md:max-w-[50%] md:relative">
+          <h2 className="text-white text-5xl text-left md:text-right font-extralight">
             Hi!
           </h2>
           <h1 className="bg-[#FFD602] text-center md:text-right font-bold text-5xl py-2 px-5">
@@ -199,13 +199,13 @@ function Skills() {
 }
 
 function ProjectComponent({ project }: any) {
-  // const [i, setI] = useState(0);
-  // setI(prevCount => prevCount + 1)
+
   return (
     <div className=" flex flex-col justify-between items-start gap-2 md:flex-row">
-      <div className="gap-5 md:min-w-[35%] md:max-w-[40%] ">
+      <div className="flex flex-col gap-4 md:min-w-[35%] md:max-w-[40%] ">
+
         <h3 className="text-white font-medium text-left">
-          01 / {project.title}
+           {project.title}
         </h3>
 
         <Image
@@ -219,6 +219,7 @@ function ProjectComponent({ project }: any) {
         <p className="text-white font-extralight text-left">
           {project.description}
         </p>
+
       </div>
       <div className="flex-shrink-0">
         <Image
@@ -238,10 +239,10 @@ function Projects() {
 
   return (
     <div id="projects" className="flex flex-col gap-5">
-      <h2 className="text-white text-center font-bold text-base">
+      <h2 className="text-white text-center font-bold text-xl">
         MY PROJECTS
       </h2>
-      <div className="flex flex-col gap-4 mx-[10%]">
+      <div className="flex flex-col gap-16 mx-[10%]">
         {sortedProjects.map((project) => (
           <ProjectComponent key={project.id} project={project} />
         ))}
