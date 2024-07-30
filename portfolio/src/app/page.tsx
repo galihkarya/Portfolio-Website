@@ -207,7 +207,7 @@ function ProjectComponent({ project }: any) {
         <h3 className="text-white font-medium text-left">{project.title}</h3>
 
         <Image
-          className="aspect-video sm:hidden sm:h-[180px] sm:w-[320px]"
+          className="aspect-video w-full h-auto sm:hidden sm:h-[180px] sm:w-[320px]"
           alt={project.title}
           src={project.image}
           width={320}
