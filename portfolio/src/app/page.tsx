@@ -62,8 +62,8 @@ function NavBar() {
   };
 
   return (
-    <div className="relative">
-      <div className="flex items-center justify-between px-16 py-6">
+    <div className="relative ">
+      <div className="flex items-center justify-between px-10 py-6">
         <h1 className="font-bold text-2xl tracking-widest text-white ">
           &lt;gal/&gt;
         </h1>
@@ -75,7 +75,7 @@ function NavBar() {
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
-          <Moon size={20} />
+          {/* <Moon size={20} /> */}
         </div>
       </div>
 
@@ -92,37 +92,35 @@ function NavBar() {
             <nav className="my-8">
               <a
                 href="#hero"
-                className="block py-2.5 px-4 hover:bg-gray-700"
+                className="block py-2.5 px-4 hover:bg-gray-700/50"
                 onClick={toggleSidebar}
               >
                 About me
               </a>
               <a
                 href="#skills"
-                className="block py-2.5 px-4 hover:bg-gray-700"
+                className="block py-2.5 px-4 hover:bg-gray-700/50"
                 onClick={toggleSidebar}
               >
                 Skills
               </a>
               <a
                 href="#projects"
-                className="block py-2.5 px-4 hover:bg-gray-700"
+                className="block py-2.5 px-4 hover:bg-gray-700/50"
                 onClick={toggleSidebar}
               >
                 Projects
               </a>
               <a
                 href="#contact"
-                className="block py-2.5 px-4 hover:bg-gray-700"
+                className="block py-2.5 px-4 hover:bg-gray-700/50"
                 onClick={toggleSidebar}
               >
                 Contact
               </a>
             </nav>
           </div>
-          <div className="px-4">
-            <Moon color="white" size={20} />
-          </div>
+          <div className="px-4">{/* <Moon color="white" size={20} /> */}</div>
         </div>
       </div>
     </div>
@@ -134,7 +132,7 @@ function Hero() {
     <div id="hero" className="relative flex overflow-hidden">
       <Image
         src={codeBackground}
-        style={{ objectFit: "cover", scale: '200%', zIndex: 0 }}
+        style={{ objectFit: "cover", scale: "200%", zIndex: 0 }}
         alt="Code Background"
         layout="fill"
         className="object-cover"
@@ -178,14 +176,16 @@ function Skills() {
       <div className="flex flex-col items-center gap-6 justify-center md:flex-row">
         <div className="flex items-center gap-4">
           <Image alt="react icon" width={36} height={36} src={reactIcon} />
-          <p className="text-white font-light text-base">Front-end Development</p>
+          <p className="text-white font-light text-base">
+            Front-end Development
+          </p>
         </div>
 
         <div className="flex items-center gap-4">
           <Image alt="react icon" width={36} height={36} src={uiuxIcon} />
           <p className="text-white font-light text-base">UI/UX Design</p>
         </div>
-        
+
         <div className="flex items-center gap-4">
           <Image
             alt="react icon"
@@ -201,17 +201,13 @@ function Skills() {
 }
 
 function ProjectComponent({ project }: any) {
-
   return (
-    <div className=" flex flex-col justify-between items-start gap-2 md:flex-row">
-      <div className="flex flex-col gap-4 md:min-w-[35%] md:max-w-[40%] ">
-
-        <h3 className="text-white font-medium text-left">
-           {project.title}
-        </h3>
+    <div className=" flex flex-col justify-between items-start gap-2 sm:flex-row">
+      <div className="flex flex-col gap-4 sm:min-w-[35%] sm:max-w-[40%] ">
+        <h3 className="text-white font-medium text-left">{project.title}</h3>
 
         <Image
-        className="md:hidden md:h-[180px] md:w-[320px]"
+          className="aspect-video sm:hidden sm:h-[180px] sm:w-[320px]"
           alt={project.title}
           src={project.image}
           width={320}
@@ -221,11 +217,10 @@ function ProjectComponent({ project }: any) {
         <p className="text-white font-extralight text-left">
           {project.description}
         </p>
-
       </div>
       <div className="flex-shrink-0">
         <Image
-        className="hidden md:block md:h-[180px] md:w-[320px]"
+          className="hidden aspect-video sm:block sm:h-[180px] sm:w-[320px]"
           alt={project.title}
           src={project.image}
           width={320}
@@ -240,11 +235,9 @@ function Projects() {
   const sortedProjects = projects.sort((a, b) => b.id - a.id);
 
   return (
-    <div id="projects" className="flex flex-col gap-5">
-      <h2 className="text-white text-center font-bold text-xl">
-        MY PROJECTS
-      </h2>
-      <div className="flex flex-col gap-16 mx-[10%]">
+    <div id="projects" className="flex flex-col gap-5 ">
+      <h2 className="text-white text-center font-bold text-xl">MY PROJECTS</h2>
+      <div className="flex flex-col gap-16 justify-center">
         {sortedProjects.map((project) => (
           <ProjectComponent key={project.id} project={project} />
         ))}
