@@ -204,7 +204,9 @@ function ProjectComponent({ project }: any) {
   return (
     <div className=" flex flex-col justify-between items-start gap-2 sm:flex-row">
       <div className="flex flex-col gap-4 sm:min-w-[35%] sm:max-w-[40%] ">
-        <h3 className="text-white font-medium text-left">{project.title}</h3>
+        <h3 className="text-white font-medium text-left sm:text-lg">
+          {project.title}
+        </h3>
 
         <Image
           className="aspect-video w-full h-auto sm:hidden sm:h-[180px] sm:w-[320px]"
@@ -235,12 +237,14 @@ function Projects() {
   const sortedProjects = projects.sort((a, b) => b.id - a.id);
 
   return (
-    <div id="projects" className="flex flex-col gap-5 ">
+    <div id="projects" className="flex flex-col gap-5 sm:justify-center ">
       <h2 className="text-white text-center font-bold text-xl">MY PROJECTS</h2>
-      <div className="flex flex-col gap-16 justify-center">
-        {sortedProjects.map((project) => (
-          <ProjectComponent key={project.id} project={project} />
-        ))}
+      <div className="flex justify-center">
+        <div className="flex flex-col gap-16 sm:max-w-[1000px] ">
+          {sortedProjects.map((project) => (
+            <ProjectComponent key={project.id} project={project} />
+          ))}
+        </div>
       </div>
     </div>
   );
