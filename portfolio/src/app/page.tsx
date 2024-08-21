@@ -35,7 +35,7 @@ const projects = [
     id: 3,
     title: "Persona",
     description:
-      "Persona is an Android application that brings personality identification system. - final college assignment",
+      "Persona is an Android application that brings personality identification system using Yolov8 - final college assignment",
     image: "/assets/Projectimage-1.jpg",
   },
 ];
@@ -154,7 +154,7 @@ function Hero() {
             I&apos;m Galih Karya
           </h1>
           <p className="text-white text-center md:text-right font-light text-lg mt-[5%]">
-            I am an undergraduate student at Computer Engineering Department,
+            I am freshgraduate at Computer Engineering Department,
             Telkom University. My academic journey has equipped me with a strong
             foundation in mobile app development and machine learning. The
             project that significantly contributed to my professional growth was
