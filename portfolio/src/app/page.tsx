@@ -154,8 +154,8 @@ function Hero() {
             I&apos;m Galih Karya
           </h1>
           <p className="text-white text-center md:text-right font-light text-lg mt-[5%]">
-            I am freshgraduate at Computer Engineering Department,
-            Telkom University. My academic journey has equipped me with a strong
+            I am freshgraduate at Computer Engineering Department, Telkom
+            University. My academic journey has equipped me with a strong
             foundation in mobile app development and machine learning. The
             project that significantly contributed to my professional growth was
             my final project and internship at PTDI.
