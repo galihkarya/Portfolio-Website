@@ -9,6 +9,8 @@ import videoEditingIcon from "../../assets/video.png";
 import { Moon, AlignJustify, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { motion } from "framer-motion";
+
 const projects = [
   {
     id: 0,
@@ -138,15 +140,22 @@ function Hero() {
         className="object-cover"
       />
       <div className="relative flex flex-col w-full md:flex-row items-center">
-        <Image
-          src={myPhoto}
+        <motion.div
           className=" aspect-square md:w-[50%] md:h-auto"
-          width={2235}
-          height={2235}
-          alt="my photo"
-        />
-
-        <div className=" flex flex-col gap-3 py-6 -mt-[30%] sm:-mt-[25%] md:mt-0 md:justify-center md:items-end md:max-w-[50%] md:relative">
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, ease: [0, 0.71, 0.2, 1.01], duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <Image src={myPhoto} width={2235} height={2235} alt="my photo" />
+        </motion.div>
+        <motion.div
+          className=" flex flex-col gap-3 py-6 -mt-[30%] sm:-mt-[25%] md:mt-0 md:justify-center md:items-end md:max-w-[50%] md:relative"
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, ease: [0, 0.71, 0.2, 1.01], duration: 1 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-white text-5xl text-left md:text-right font-extralight">
             Hi!
           </h2>
@@ -160,7 +169,7 @@ function Hero() {
             project that significantly contributed to my professional growth was
             my final project and internship at PTDI.
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
@@ -168,7 +177,14 @@ function Hero() {
 
 function Skills() {
   return (
-    <div id="skills" className="flex flex-col gap-5">
+    <motion.div
+      id="skills"
+      className="flex flex-col gap-5"
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.8, ease: [0, 0.71, 0.2, 1.01], duration: 1 }}
+      viewport={{ once: true }}
+    >
       <h2 className="text-white text-center font-bold text-xl">
         WHAT I&apos;M GREAT AT
       </h2>
@@ -196,7 +212,7 @@ function Skills() {
           <p className="text-white font-light text-base">Video Editing</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -237,7 +253,14 @@ function Projects() {
   const sortedProjects = projects.sort((a, b) => b.id - a.id);
 
   return (
-    <div id="projects" className="flex flex-col gap-5 sm:justify-center ">
+    <motion.div
+      id="projects"
+      className="flex flex-col gap-5 sm:justify-center "
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1, ease: [0, 0.71, 0.2, 1.01], duration: 1 }}
+      viewport={{ once: true }}
+    >
       <h2 className="text-white text-center font-bold text-xl">MY PROJECTS</h2>
       <div className="flex justify-center">
         <div className="flex flex-col gap-16 sm:max-w-[1000px] ">
@@ -246,19 +269,23 @@ function Projects() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function Contact() {
   return (
-    <div
+    <motion.div
       id="contact"
       className="flex flex-col gap-5 bg-[#0D111E] items-center py-6"
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.8, ease: [0, 0.71, 0.2, 1.01], duration: 1 }}
+      viewport={{ once: true }}
     >
       <h2 className="text-white text-center font-bold text-base">CONTACT ME</h2>
       <div className="flex justify-center gap-6">
-        <a
+        <motion.a
           href="https://www.instagram.com/galihkarya_g/"
           target="_blank"
           rel="noopener noreferrer"
@@ -269,8 +296,8 @@ function Contact() {
             width={45}
             height={45}
           />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
           href="https://www.linkedin.com/in/galihkarya/"
           target="_blank"
           rel="noopener noreferrer"
@@ -281,18 +308,18 @@ function Contact() {
             width={45}
             height={45}
           />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
           href="mailto:galihkaryagemilang2001@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
         >
           <Image src="/assets/Email.png" alt="email" width={45} height={45} />
-        </a>
+        </motion.a>
       </div>
       <h3 className="text-white font-thin opacity-50">
         handcrafted with ❤️ 2024
       </h3>
-    </div>
+    </motion.div>
   );
 }
