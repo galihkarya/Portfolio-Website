@@ -286,6 +286,8 @@ function Contact() {
       <h2 className="text-white text-center font-bold text-base">CONTACT ME</h2>
       <div className="flex justify-center gap-6">
         <motion.a
+          className="rounded-full"
+          whileHover={{ boxShadow: "0 0 15px rgba(255, 255, 255, 0.5)" }}
           href="https://www.instagram.com/galihkarya_g/"
           target="_blank"
           rel="noopener noreferrer"
@@ -298,6 +300,8 @@ function Contact() {
           />
         </motion.a>
         <motion.a
+          className="rounded-full"
+          whileHover={{ boxShadow: "0 0 15px rgba(255, 255, 255, 0.5)" }}
           href="https://www.linkedin.com/in/galihkarya/"
           target="_blank"
           rel="noopener noreferrer"
@@ -310,6 +314,8 @@ function Contact() {
           />
         </motion.a>
         <motion.a
+          className="rounded-full"
+          whileHover={{ boxShadow: "0 0 15px rgba(255, 255, 255, 0.5)" }}
           href="mailto:galihkaryagemilang2001@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
@@ -317,9 +323,11 @@ function Contact() {
           <Image src="/assets/Email.png" alt="email" width={45} height={45} />
         </motion.a>
       </div>
-      <h3 className="text-white font-thin opacity-50">
+      <motion.h3 
+      className="text-white font-thin opacity-50"
+      whileHover={{opacity: 1}} >
         handcrafted with ❤️ 2024
-      </h3>
+      </motion.h3>
     </motion.div>
   );
 }
