@@ -43,7 +43,7 @@ const projects = [
     id: 3,
     title: "Persona",
     description:
-      "Persona is an Android application that brings personality identification system using Yolov8 - final college assignment",
+      "Persona is an Android application that brings personality identification system using Yolov8 - thesis project",
     image: "/assets/Projectimage-1.jpg",
     tags: [reactIcon, uiuxIcon, figmaIcon, mlIcon],
   },
@@ -291,6 +291,25 @@ function Projects() {
     </motion.div>
   );
 }
+
+function Modal ({ isOpen, onClose, children }:any) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+        >
+          &times;
+        </button>
+        {children}
+      </div>
+    </div>
+  );
+};
+
 
 function Contact() {
   return (
