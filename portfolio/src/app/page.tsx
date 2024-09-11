@@ -6,6 +6,9 @@ import myPhoto from "../../assets/my-photo.png";
 import reactIcon from "../../assets/react.png";
 import uiuxIcon from "../../assets/uiux.png";
 import videoEditingIcon from "../../assets/video.png";
+import figmaIcon from "../../assets/figma.png";
+import mlIcon from "../../assets/ml.png";
+
 import { Moon, AlignJustify, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -18,6 +21,7 @@ const projects = [
     description:
       'KuyStudy is a concept application for the "learning with teacher" booking system. - GEMASTIK XIV ',
     image: "/assets/Projectimage-4.jpg",
+    tags: [uiuxIcon, figmaIcon],
   },
   {
     id: 1,
@@ -25,6 +29,7 @@ const projects = [
     description:
       "E-Commerce is a concept of marketplace with a simple-clean design - class assignment",
     image: "/assets/Projectimage-3.jpg",
+    tags: [uiuxIcon, figmaIcon],
   },
   {
     id: 2,
@@ -32,6 +37,7 @@ const projects = [
     description:
       "PawMatch is an platform in a form of Android application for users that have pet and want to match their pets - final class assignment",
     image: "/assets/Projectimage-2.jpg",
+    tags: [reactIcon, uiuxIcon, figmaIcon],
   },
   {
     id: 3,
@@ -39,8 +45,11 @@ const projects = [
     description:
       "Persona is an Android application that brings personality identification system using Yolov8 - final college assignment",
     image: "/assets/Projectimage-1.jpg",
+    tags: [reactIcon, uiuxIcon, figmaIcon, mlIcon],
   },
 ];
+
+const projectsReversed = [...projects].reverse();
 
 export default function Home() {
   return (
@@ -141,7 +150,7 @@ function Hero() {
       />
       <div className="relative flex flex-col w-full md:flex-row items-center">
         <motion.div
-          className=" aspect-square md:w-[50%] md:h-auto"
+          className=" aspect-square md:w-[50%] md:h-auto "
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, ease: [0, 0.71, 0.2, 1.01], duration: 1 }}
@@ -167,7 +176,8 @@ function Hero() {
             University. My academic journey has equipped me with a strong
             foundation in mobile app development and machine learning. The
             project that significantly contributed to my professional growth was
-            my final project and internship at PTDI.
+            my thesis project and activities at Intelligence System and Machine
+            Learning (I-SMILE) Laboratory.
           </p>
         </motion.div>
       </div>
@@ -235,7 +245,18 @@ function ProjectComponent({ project }: any) {
         <p className="text-white font-extralight text-left">
           {project.description}
         </p>
+
+      <div className="flex flex-row gap-4">
+        {project.tags.map((tag:any, index:any) => (
+          <div key={index} className="w-8 h-8">
+            <Image src={tag} alt="icon" width={32} height={32} />
+          </div>
+        ))}
       </div>
+
+      </div>
+
+
       <div className="flex-shrink-0">
         <Image
           className="hidden aspect-video sm:block sm:h-[180px] sm:w-[320px]"
@@ -250,8 +271,6 @@ function ProjectComponent({ project }: any) {
 }
 
 function Projects() {
-  const sortedProjects = projects.sort((a, b) => b.id - a.id);
-
   return (
     <motion.div
       id="projects"
@@ -264,7 +283,7 @@ function Projects() {
       <h2 className="text-white text-center font-bold text-xl">MY PROJECTS</h2>
       <div className="flex justify-center">
         <div className="flex flex-col gap-16 sm:max-w-[1000px] ">
-          {sortedProjects.map((project) => (
+          {projectsReversed.map((project) => (
             <ProjectComponent key={project.id} project={project} />
           ))}
         </div>
@@ -278,10 +297,10 @@ function Contact() {
     <motion.div
       id="contact"
       className="flex flex-col gap-5 bg-[#0D111E] items-center py-6"
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.8, ease: [0, 0.71, 0.2, 1.01], duration: 1 }}
-      viewport={{ once: true }}
+      // initial={{ opacity: 0, y: 100 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // transition={{ delay: 0.8, ease: [0, 0.71, 0.2, 1.01], duration: 1 }}
+      // viewport={{ once: true }}
     >
       <h2 className="text-white text-center font-bold text-base">CONTACT ME</h2>
       <div className="flex justify-center gap-6">
@@ -323,9 +342,10 @@ function Contact() {
           <Image src="/assets/Email.png" alt="email" width={45} height={45} />
         </motion.a>
       </div>
-      <motion.h3 
-      className="text-white font-thin opacity-50"
-      whileHover={{opacity: 1}} >
+      <motion.h3
+        className="text-white font-thin opacity-50"
+        whileHover={{ opacity: 1 }}
+      >
         handcrafted with ❤️ 2024
       </motion.h3>
     </motion.div>
