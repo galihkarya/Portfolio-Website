@@ -18,33 +18,45 @@ const projects = [
   {
     id: 0,
     title: "KuyStudy",
+    projectType: "GEMASTIK XIV", 
     description:
-      'KuyStudy is a concept application for the "learning with teacher" booking system. - GEMASTIK XIV ',
+      'KuyStudy is a concept application for the "learning with teacher" booking system. ',
+    // detailedDescription: "",
     image: "/assets/Projectimage-4.jpg",
+    // detailedImage: "",
     tags: [uiuxIcon, figmaIcon],
   },
   {
     id: 1,
     title: "E-Commerce",
+    projectType: "Course assignment", 
     description:
-      "E-Commerce is a concept of marketplace with a simple-clean design - class assignment",
+      "E-Commerce is a concept of marketplace with a simple-clean design. ",
+    // detailedDescription: "",
     image: "/assets/Projectimage-3.jpg",
+    // detailedImage: "",
     tags: [uiuxIcon, figmaIcon],
   },
   {
     id: 2,
     title: "PawMatch",
+    projectType: "Final course assignment", 
     description:
-      "PawMatch is an platform in a form of Android application for users that have pet and want to match their pets - final class assignment",
+      "PawMatch is an platform in a form of Android application for users that have pet and want to match their pets. ",
+    // detailedDescription: "",
     image: "/assets/Projectimage-2.jpg",
+    // detailedImage: "",
     tags: [reactIcon, uiuxIcon, figmaIcon],
   },
   {
     id: 3,
     title: "Persona",
+    projectType: "Thesis project (Capstone Design)", 
     description:
-      "Persona is an Android application that brings personality identification system using Yolov8 - thesis project",
+      "Persona is an Android application that brings personality identification system using Yolov8. ",
+    // detailedDescription: "",
     image: "/assets/Projectimage-1.jpg",
+    // detailedImage: "/assets/detailedImagePersona.png",
     tags: [reactIcon, uiuxIcon, figmaIcon, mlIcon],
   },
 ];
@@ -246,16 +258,18 @@ function ProjectComponent({ project }: any) {
           {project.description}
         </p>
 
-      <div className="flex flex-row gap-4">
-        {project.tags.map((tag:any, index:any) => (
-          <div key={index} className="w-8 h-8">
-            <Image src={tag} alt="icon" width={32} height={32} />
-          </div>
-        ))}
-      </div>
+        <p className="text-white font-extralight text-left opacity-50">
+          {project.projectType}
+        </p>
 
+        <div className="flex flex-row gap-4">
+          {project.tags.map((tag: any, index: any) => (
+            <div key={index} className="w-8 h-8">
+              <Image src={tag} alt="icon" width={32} height={32} />
+            </div>
+          ))}
+        </div>
       </div>
-
 
       <div className="flex-shrink-0">
         <Image
@@ -292,7 +306,7 @@ function Projects() {
   );
 }
 
-function Modal ({ isOpen, onClose, children }:any) {
+function Modal({ isOpen, onClose, children }: any) {
   if (!isOpen) return null;
 
   return (
@@ -308,8 +322,7 @@ function Modal ({ isOpen, onClose, children }:any) {
       </div>
     </div>
   );
-};
-
+}
 
 function Contact() {
   return (
