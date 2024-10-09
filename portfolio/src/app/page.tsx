@@ -18,7 +18,7 @@ const projects = [
   {
     id: 0,
     title: "KuyStudy",
-    projectType: "GEMASTIK XIV", 
+    projectType: "GEMASTIK XIV",
     description:
       'KuyStudy is a concept application for the "learning with teacher" booking system. ',
     // detailedDescription: "",
@@ -29,7 +29,7 @@ const projects = [
   {
     id: 1,
     title: "E-Commerce",
-    projectType: "Course assignment", 
+    projectType: "Course assignment",
     description:
       "E-Commerce is a concept of marketplace with a simple-clean design. ",
     // detailedDescription: "",
@@ -40,7 +40,7 @@ const projects = [
   {
     id: 2,
     title: "PawMatch",
-    projectType: "Final course assignment", 
+    projectType: "Final course assignment",
     description:
       "PawMatch is an platform in a form of Android application for users that have pet and want to match their pets. ",
     // detailedDescription: "",
@@ -51,7 +51,7 @@ const projects = [
   {
     id: 3,
     title: "Persona",
-    projectType: "Thesis project (Capstone Design)", 
+    projectType: "Thesis project (Capstone Design)",
     description:
       "Persona is an Android application that brings personality identification system using Yolov8. ",
     // detailedDescription: "",
@@ -64,8 +64,23 @@ const projects = [
 const projectsReversed = [...projects].reverse();
 
 export default function Home() {
+  const [isAnnouncementModalOpen, setIsAnnouncementModalOpen] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (isAnnouncementModalOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isAnnouncementModalOpen]);
+
   return (
     <main id="main" className=" bg-[#0B1328] min-h-screen select-none ">
+      {isAnnouncementModalOpen && <AnnouncementModal setIsAnnouncementModalOpen={setIsAnnouncementModalOpen}/>}
       <NavBar />
       <div id="main-content" className="flex flex-col gap-24 p-8">
         <Hero />
@@ -381,5 +396,31 @@ function Contact() {
         handcrafted with ❤️ 2024
       </motion.h3>
     </motion.div>
+  );
+}
+
+interface AnnouncementModalProps {
+  setIsAnnouncementModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function AnnouncementModal({ setIsAnnouncementModalOpen }: AnnouncementModalProps) {
+  return (
+    <div onClick={() => setIsAnnouncementModalOpen(false)} className="flex absolute top-0 z-50 w-screen h-full bg-[#00000088] backdrop-blur-md p-16">
+      <div className="flex flex-col gap-8 w-screen justify-center items-center">
+        <h1 className="text-white font-bold text-3xl">Announcement!</h1>
+        <Image
+          src={"/assets/new-ui.png"}
+          className="h-[500px] w-auto"
+          height={1538}
+          width={822}
+          alt="new-ui-image"
+        />
+        <p className="text-white text-center">
+          Hello! At this moment, i am developing a new ui for my personal
+          website, so stay tuned! Have a great day!
+        </p>
+        <p className="text-white text-center font-thin opacity-40">click anywhere to close</p>
+      </div>
+    </div>
   );
 }
