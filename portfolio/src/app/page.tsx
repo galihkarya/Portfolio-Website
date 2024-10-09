@@ -410,7 +410,7 @@ function AnnouncementModal({ setIsAnnouncementModalOpen }: AnnouncementModalProp
         <h1 className="text-white font-bold text-3xl">Announcement!</h1>
         <Image
           src={"/assets/new-ui.png"}
-          className="h-[350px] w-auto"
+          className="md:h-[600px] h-[350px] w-auto"
           height={1538}
           width={822}
           alt="new-ui-image"
