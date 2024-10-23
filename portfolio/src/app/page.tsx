@@ -416,7 +416,7 @@ function AnnouncementModal({ setIsAnnouncementModalOpen }: AnnouncementModalProp
           alt="new-ui-image"
         />
         <p className="text-white text-center">
-          Hello! I think you should checkout my new portfolio website! It's not done yet but I'm excited to show you the progress. I hope you like it!
+          Hello! I think you should checkout my new portfolio website! It&apos;s not done yet but I&apos;m excited to show you the progress. I hope you like it!
         </p>
         <a href="https://josfroux.vercel.app" className="bg-[#394971] text-white px-4 py-2 rounded-lg hover:opacity-30">josfroux.vercel.app</a>
         <p className="text-white text-center font-thin opacity-40">click anywhere to close</p>
