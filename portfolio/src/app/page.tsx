@@ -409,16 +409,16 @@ function AnnouncementModal({ setIsAnnouncementModalOpen }: AnnouncementModalProp
       <div className="flex flex-col gap-8 w-screen justify-center items-center">
         <h1 className="text-white font-bold text-3xl">Announcement!</h1>
         <Image
-          src={"/assets/new-ui.png"}
-          className="md:h-[600px] h-[350px] w-auto"
-          height={1538}
-          width={822}
+          src={"/assets/josfroux-mockup-ipad-iphone.png"}
+          className="w-[100vw] max-w-4xl"
+          height={1942}
+          width={3021}
           alt="new-ui-image"
         />
         <p className="text-white text-center">
-          Hello! At this moment, i am developing a new ui for my personal
-          website, so stay tuned! Have a great day!
+          Hello! I think you should checkout my new portfolio website! It's not done yet but I'm excited to show you the progress. I hope you like it!
         </p>
+        <a href="https://josfroux.vercel.app" className="bg-[#394971] text-white px-4 py-2 rounded-lg hover:opacity-30">josfroux.vercel.app</a>
         <p className="text-white text-center font-thin opacity-40">click anywhere to close</p>
       </div>
     </div>
