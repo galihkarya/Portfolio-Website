@@ -410,7 +410,7 @@ function AnnouncementModal({ setIsAnnouncementModalOpen }: AnnouncementModalProp
         <h1 className="text-white font-bold text-3xl">Announcement!</h1>
         <Image
           src={"/assets/josfroux-mockup-ipad-iphone.png"}
-          className="w-[100vw] max-w-4xl"
+          className="w-[70vw] max-w-3xl sm:w-[80vw] md:w-[90vw] "
           height={1942}
           width={3021}
           alt="new-ui-image"
